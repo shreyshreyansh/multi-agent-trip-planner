@@ -53,7 +53,7 @@ For Render:
 
 1. Create a new Render web service from this GitHub repo.
 2. Use the included `render.yaml` blueprint or these commands:
-   - Build: `npm ci && npm run build`
+   - Build: `npm ci --include=dev && npm run build && npm prune --omit=dev`
    - Start: `npm start`
 3. Add `GEMINI_API_KEY` as a secret environment variable.
 

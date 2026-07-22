@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: multi-agent-trip-planner
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8787
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_API_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/models
+      - key: GEMINI_MODEL
+        value: gemini-3.6-flash
+      - key: AUDIT_LOG_PATH
+        value: data/audit-log.jsonl
